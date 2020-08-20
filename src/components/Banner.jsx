@@ -15,11 +15,12 @@ const Banner = ({ children, title, subtitle }) => {
 Banner.propTypes = {
   children: PropTypes.element,
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
 };
 
 Banner.defaultProps = {
   children: null,
+  subtitle: '',
 };
 
-export default Banner;
+export default React.memo(Banner);
