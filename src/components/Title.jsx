@@ -13,4 +13,4 @@ const Title = ({ title }) => {
 Title.propTypes = {
   title: PropTypes.string.isRequired,
 };
-export default Title;
+export default React.memo(Title);
