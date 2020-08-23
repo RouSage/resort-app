@@ -24,6 +24,13 @@ const RoomProvider = ({ children }) => {
     return tempItems;
   };
 
+  const getRoom = (slug) => {
+    const tempRooms = [...roomsData.rooms];
+    const room = tempRooms.find((tempRoom) => tempRoom.slug === slug);
+
+    return room;
+  };
+
   useEffect(() => {
     const rooms = formatData(items);
     const featuredRooms = rooms.filter((room) => room.featured);
@@ -38,7 +45,7 @@ const RoomProvider = ({ children }) => {
   }, []);
 
   return (
-    <RoomContext.Provider value={{ ...roomsData, loading }}>
+    <RoomContext.Provider value={{ ...roomsData, loading, getRoom }}>
       {children}
     </RoomContext.Provider>
   );
