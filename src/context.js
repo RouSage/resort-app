@@ -11,6 +11,17 @@ const RoomProvider = ({ children }) => {
     featuredRooms: [],
     sortedRooms: [],
   });
+  const [filterData, setFilterData] = useState({
+    type: 'all',
+    capacity: 1,
+    price: 0,
+    minPrice: 0,
+    maxPrice: 0,
+    minSize: 0,
+    maxSize: 0,
+    breakfast: false,
+    pets: false,
+  });
 
   const formatData = (data) => {
     const tempItems = data.map((item) => {
@@ -31,9 +42,55 @@ const RoomProvider = ({ children }) => {
     return room;
   };
 
+  const filterRooms = () => {
+    const { rooms } = roomsData;
+    let {
+      type,
+      capacity,
+      price,
+      minPrice,
+      maxPrice,
+      minSize,
+      maxSize,
+      breakfast,
+      pets,
+    } = filterData;
+    // All the rooms
+    let tempRooms = [...rooms];
+
+    // Transform values
+    capacity = parseInt(capacity, 10);
+
+    // Filter by type
+    if (type !== 'all') {
+      tempRooms = tempRooms.filter((room) => room.type === type);
+    }
+    // Filter by capacity
+    if (capacity !== 1) {
+      tempRooms = tempRooms.filter((room) => room.capacity >= capacity);
+    }
+
+    setRoomsData({ ...roomsData, sortedRooms: tempRooms });
+  };
+
+  const handleChange = (event) => {
+    const { target } = event;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
+
+    setFilterData({ ...filterData, [name]: value });
+  };
+
+  useEffect(() => {
+    // Filter rooms after each change in filterData
+    filterRooms();
+  }, [filterData]);
+
   useEffect(() => {
     const rooms = formatData(items);
     const featuredRooms = rooms.filter((room) => room.featured);
+    const maxPrice = Math.max(...rooms.map((room) => room.price));
+    const maxSize = Math.max(...rooms.map((room) => room.size));
 
     setRoomsData((prevRoomsData) => ({
       ...prevRoomsData,
@@ -41,11 +98,19 @@ const RoomProvider = ({ children }) => {
       featuredRooms,
       sortedRooms: rooms,
     }));
+    setFilterData((prevFilterData) => ({
+      ...prevFilterData,
+      price: maxPrice,
+      maxPrice,
+      maxSize,
+    }));
     setLoading(false);
   }, []);
 
   return (
-    <RoomContext.Provider value={{ ...roomsData, loading, getRoom }}>
+    <RoomContext.Provider
+      value={{ ...roomsData, ...filterData, loading, getRoom, handleChange }}
+    >
       {children}
     </RoomContext.Provider>
   );

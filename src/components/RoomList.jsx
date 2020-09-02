@@ -23,14 +23,7 @@ const RoomList = ({ rooms }) => {
 };
 
 RoomList.propTypes = {
-  rooms: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-      images: PropTypes.arrayOf(PropTypes.string).isRequired,
-      price: PropTypes.number.isRequired,
-    })
-  ),
+  rooms: PropTypes.arrayOf(PropTypes.object),
 };
 
 RoomList.defaultProps = {
