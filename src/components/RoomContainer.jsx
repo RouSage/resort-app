@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { RoomContext } from '../context';
 import Loading from './loading/Loading';
 import RoomFilter from './roomFilter/RoomFilter';
-import RoomList from './RoomList';
+import RoomList from './roomList/RoomList';
 
 const RoomContainer = () => {
   const { loading, sortedRooms, rooms } = useContext(RoomContext);
