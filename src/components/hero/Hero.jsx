@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import './Hero.scss';
 
 const Hero = ({ children, hero }) => {
   return <header className={hero}>{children}</header>;
