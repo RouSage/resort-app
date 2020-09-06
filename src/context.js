@@ -44,17 +44,8 @@ const RoomProvider = ({ children }) => {
 
   const filterRooms = () => {
     const { rooms } = roomsData;
-    let {
-      type,
-      capacity,
-      price,
-      minPrice,
-      maxPrice,
-      minSize,
-      maxSize,
-      breakfast,
-      pets,
-    } = filterData;
+    const { type, minSize, maxSize, breakfast, pets } = filterData;
+    let { capacity, price } = filterData;
     // All the rooms
     let tempRooms = [...rooms];
 
@@ -72,7 +63,20 @@ const RoomProvider = ({ children }) => {
     }
     // Filter by price
     tempRooms = tempRooms.filter((room) => room.price <= price);
+    // Filter by size
+    tempRooms = tempRooms.filter(
+      (room) => room.size >= minSize && room.size <= maxSize
+    );
+    // Filter by breakfast
+    if (breakfast) {
+      tempRooms = tempRooms.filter((room) => room.breakfast);
+    }
+    // Filter by pets
+    if (pets) {
+      tempRooms = tempRooms.filter((room) => room.pets);
+    }
 
+    // Update state with sorted rooms
     setRoomsData({ ...roomsData, sortedRooms: tempRooms });
   };
 
