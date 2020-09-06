@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import logo from '../images/logo.svg';
-import { HOME_PAGE, ROOMS_PAGE } from '../routes';
+import logo from '../../images/logo.svg';
+import { HOME_PAGE, ROOMS_PAGE } from '../../routes';
+import './Navbar.scss';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
             <FaBars className="nav-icon" />
           </button>
         </div>
-        <ul className={`nav-links ${isOpen ? 'show-nav' : ''}`}>
+        <ul className={`nav-links ${isOpen ? 'nav-show' : ''}`}>
           <li>
             <Link to={HOME_PAGE}>Home</Link>
           </li>

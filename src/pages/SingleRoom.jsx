@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Banner from '../components/Banner';
+import Banner from '../components/banner/Banner';
 import StyledHero from '../components/StyledHero';
 import { RoomContext } from '../context';
 import defaultImg from '../images/room-1.jpeg';
 import { ROOMS_PAGE } from '../routes';
+import '../scss/pages/SingleRoom.scss';
 
 const SingleRoom = () => {
   const { slug } = useParams();
