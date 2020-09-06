@@ -1,0 +1,74 @@
+@import '../../scss/colors';
+@import '../../scss/vars';
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75rem 2rem;
+  background: $off-white;
+  z-index: 1;
+}
+.nav {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  &-icon {
+    font-size: 1.5rem;
+    color: $primary-color;
+  }
+  &-links {
+    height: 0;
+    overflow: hidden;
+    transition: $main-transition;
+    list-style-type: none;
+    a {
+      display: block;
+      text-decoration: none;
+      padding: 1rem 0;
+      color: $main-black;
+      transition: $main-transition;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: $main-spacing;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  &-show {
+    height: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    &-btn {
+      display: none;
+    }
+    &-center {
+      max-width: 1170px;
+      margin: 0 auto;
+      display: flex;
+    }
+    &-links {
+      height: auto;
+      display: flex;
+      margin-left: 4rem;
+      a {
+        margin: 0 1rem;
+        padding: 0.5rem 0;
+      }
+    }
+  }
+}
