@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Banner from '../components/Banner';
+import Banner from '../components/banner/Banner';
 import FeaturedRooms from '../components/FeaturedRooms';
 import Hero from '../components/Hero';
 import Services from '../components/Services';

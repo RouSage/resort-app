@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import './Banner.scss';
 
 const Banner = ({ children, title, subtitle }) => {
   return (
