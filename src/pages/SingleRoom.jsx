@@ -5,6 +5,7 @@ import StyledHero from '../components/StyledHero';
 import { RoomContext } from '../context';
 import defaultImg from '../images/room-1.jpeg';
 import { ROOMS_PAGE } from '../routes';
+import '../scss/pages/SingleRoom.scss';
 
 const SingleRoom = () => {
   const { slug } = useParams();
