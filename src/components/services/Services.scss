@@ -1,5 +1,6 @@
 @import '../../scss/colors';
 @import '../../scss/vars';
+@import '../../scss/breakpoints';
 
 /* Services */
 .services {
@@ -29,7 +30,7 @@
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $md-lg) {
   .services {
     &-center {
       width: 95vw;
@@ -38,7 +39,7 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: $lg) {
   .services {
     p {
       width: 100%;

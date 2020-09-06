@@ -1,5 +1,6 @@
 @import '../../scss/colors';
 @import '../../scss/vars';
+@import '../../scss/breakpoints';
 
 /*  Rooms filter */
 .filter {
@@ -47,14 +48,14 @@
   font-size: 0.8rem;
   margin-left: 0.5rem;
 }
-@media screen and (min-width: 776px) {
+@media screen and (min-width: $md) {
   .filter {
     &-form {
       width: 70vw;
     }
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $md-lg) {
   .filter {
     &-form {
       width: 95vw;

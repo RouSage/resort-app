@@ -1,5 +1,6 @@
 @import '../../scss/colors';
 @import '../../scss/vars';
+@import '../../scss/breakpoints';
 
 /* Navbar */
 .navbar {
@@ -51,7 +52,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $md-sm) {
   .nav {
     &-btn {
       display: none;

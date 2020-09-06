@@ -1,3 +1,5 @@
+@import '../../scss/breakpoints';
+
 /* Room list */
 .roomslist {
   padding: 5rem 0;
@@ -11,14 +13,14 @@
   }
 }
 
-@media screen and (min-width: 776px) {
+@media screen and (min-width: $md) {
   .roomslist {
     &-center {
       width: 90vw;
     }
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: $md-lg) {
   .roomslist {
     &-center {
       width: 95vw;
