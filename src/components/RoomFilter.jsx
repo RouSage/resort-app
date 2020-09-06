@@ -65,6 +65,20 @@ const RoomFilter = ({ rooms }) => {
           ))}
         </select>
       </div>
+      {/* room price */}
+      <div className="form-group">
+        <label htmlFor="price">Room price ${price}</label>
+        <input
+          type="range"
+          name="price"
+          id="price"
+          min={minPrice}
+          max={maxPrice}
+          value={price}
+          onChange={handleChange}
+          className="form-control"
+        />
+      </div>
     </section>
   );
 };

@@ -60,6 +60,7 @@ const RoomProvider = ({ children }) => {
 
     // Transform values
     capacity = parseInt(capacity, 10);
+    price = parseInt(price, 10);
 
     // Filter by type
     if (type !== 'all') {
@@ -69,6 +70,8 @@ const RoomProvider = ({ children }) => {
     if (capacity !== 1) {
       tempRooms = tempRooms.filter((room) => room.capacity >= capacity);
     }
+    // Filter by price
+    tempRooms = tempRooms.filter((room) => room.price <= price);
 
     setRoomsData({ ...roomsData, sortedRooms: tempRooms });
   };
