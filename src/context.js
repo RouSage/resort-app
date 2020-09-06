@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
-import items from './data';
+// import items from './data';
+import client from './contentful';
 
 export const RoomContext = React.createContext();
 
@@ -33,6 +34,36 @@ const RoomProvider = ({ children }) => {
     });
 
     return tempItems;
+  };
+
+  // Get data
+  const getData = async () => {
+    try {
+      const response = await client.getEntries({
+        content_type: 'resortRoom',
+        order: 'fields.price',
+      });
+      const rooms = formatData(response.items);
+      const featuredRooms = rooms.filter((room) => room.featured);
+      const maxPrice = Math.max(...rooms.map((room) => room.price));
+      const maxSize = Math.max(...rooms.map((room) => room.size));
+
+      setRoomsData((prevRoomsData) => ({
+        ...prevRoomsData,
+        rooms,
+        featuredRooms,
+        sortedRooms: rooms,
+      }));
+      setFilterData((prevFilterData) => ({
+        ...prevFilterData,
+        price: maxPrice,
+        maxPrice,
+        maxSize,
+      }));
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getRoom = (slug) => {
@@ -94,24 +125,7 @@ const RoomProvider = ({ children }) => {
   }, [filterData]);
 
   useEffect(() => {
-    const rooms = formatData(items);
-    const featuredRooms = rooms.filter((room) => room.featured);
-    const maxPrice = Math.max(...rooms.map((room) => room.price));
-    const maxSize = Math.max(...rooms.map((room) => room.size));
-
-    setRoomsData((prevRoomsData) => ({
-      ...prevRoomsData,
-      rooms,
-      featuredRooms,
-      sortedRooms: rooms,
-    }));
-    setFilterData((prevFilterData) => ({
-      ...prevFilterData,
-      price: maxPrice,
-      maxPrice,
-      maxSize,
-    }));
-    setLoading(false);
+    getData();
   }, []);
 
   return (
