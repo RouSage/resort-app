@@ -3,7 +3,7 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { RoomContext } from '../../context';
-import Title from '../Title';
+import Title from '../title/Title';
 import './RoomFilter.scss';
 
 const RoomFilter = ({ rooms }) => {

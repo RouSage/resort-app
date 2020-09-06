@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBeer, FaCocktail, FaHiking, FaShuttleVan } from 'react-icons/fa';
-import Title from '../Title';
+import Title from '../title/Title';
 import './Services.scss';
 
 const services = [
