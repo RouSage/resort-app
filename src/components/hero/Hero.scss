@@ -9,16 +9,25 @@
   align-items: center;
   justify-content: center;
   @media screen and (min-width: $sm + 1) {
-    background: url('../../images/defaultBcg768w.jpg');
+    background: url('../../images/defaultBcg768w.jpg') center/cover no-repeat;
   }
   @media screen and (min-width: $md-sm + 1) {
-    background: url('../../images/defaultBcg992w.jpg');
+    background: url('../../images/defaultBcg992w.jpg') center/cover no-repeat;
   }
   @media screen and (min-width: $md-lg + 1) {
-    background: url('../../images/defaultBcg.jpeg');
+    background: url('../../images/defaultBcg.jpeg') center/cover no-repeat;
   }
 }
 .roomsHero {
-  background-image: url('../../images/room-2.jpeg');
+  background-image: url('../../images/room-2-576w.jpg');
   min-height: 60vh;
+  @media screen and (min-width: $sm + 1) {
+    background: url('../../images/room-2-768w.jpg');
+  }
+  @media screen and (min-width: $md-sm + 1) {
+    background: url('../../images/room-2-992w.jpg');
+  }
+  @media screen and (min-width: $md-lg + 1) {
+    background: url('../../images/room-2.jpeg');
+  }
 }
