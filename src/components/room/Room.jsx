@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
 import placeholderRoom from '../../images/room-1.jpeg';
 import { ROOMS_PAGE } from '../../routes';
@@ -11,7 +12,12 @@ const Room = ({ room }) => {
   return (
     <article className="room">
       <div className="img-container">
-        <img src={images[0] || placeholderRoom} alt="Single Room" />
+        <LazyLoadImage
+          alt={name}
+          src={images[0] || placeholderRoom}
+          placeholderSrc={placeholderRoom}
+        />
+        {/* <img src={images[0] || placeholderRoom} alt="Single Room" /> */}
         <div className="price-top">
           <h6>${price}</h6>
           <p>per night</p>
