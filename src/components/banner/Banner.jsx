@@ -2,16 +2,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './Banner.scss';
 
-const Banner = ({ children, title, subtitle }) => {
-  return (
-    <div className="banner">
-      <h1>{title}</h1>
-      <div />
-      <p>{subtitle}</p>
-      {children}
-    </div>
-  );
-};
+const Banner = ({ children, title, subtitle }) => (
+  <div className="banner">
+    <h1>{title}</h1>
+    <div />
+    <p>{subtitle}</p>
+    {children}
+  </div>
+);
 
 Banner.propTypes = {
   children: PropTypes.element,
