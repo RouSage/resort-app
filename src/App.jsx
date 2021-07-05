@@ -7,26 +7,24 @@ import Rooms from './pages/Rooms';
 import SingleRoom from './pages/SingleRoom';
 import { HOME_PAGE, ROOMS_PAGE, SINGLE_ROOM_PAGE } from './routes';
 
-const App = () => {
-  return (
-    <>
-      <Navbar />
-      <Switch>
-        <Route exact path={HOME_PAGE}>
-          <Home />
-        </Route>
-        <Route path={SINGLE_ROOM_PAGE}>
-          <SingleRoom />
-        </Route>
-        <Route path={ROOMS_PAGE}>
-          <Rooms />
-        </Route>
-        <Route>
-          <Error />
-        </Route>
-      </Switch>
-    </>
-  );
-};
+const App = () => (
+  <>
+    <Navbar />
+    <Switch>
+      <Route exact path={HOME_PAGE}>
+        <Home />
+      </Route>
+      <Route path={SINGLE_ROOM_PAGE}>
+        <SingleRoom />
+      </Route>
+      <Route path={ROOMS_PAGE}>
+        <Rooms />
+      </Route>
+      <Route>
+        <Error />
+      </Route>
+    </Switch>
+  </>
+);
 
 export default App;

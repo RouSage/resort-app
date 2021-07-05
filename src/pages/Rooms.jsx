@@ -5,19 +5,17 @@ import Hero from '../components/hero/Hero';
 import RoomContainer from '../components/RoomContainer';
 import { HOME_PAGE } from '../routes';
 
-const Rooms = () => {
-  return (
-    <>
-      <Hero hero="roomsHero">
-        <Banner title="Our Rooms">
-          <Link to={HOME_PAGE} className="btn-primary">
-            Return Home
-          </Link>
-        </Banner>
-      </Hero>
-      <RoomContainer />
-    </>
-  );
-};
+const Rooms = () => (
+  <>
+    <Hero hero="roomsHero">
+      <Banner title="Our Rooms">
+        <Link to={HOME_PAGE} className="btn-primary">
+          Return Home
+        </Link>
+      </Banner>
+    </Hero>
+    <RoomContainer />
+  </>
+);
 
 export default Rooms;

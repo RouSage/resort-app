@@ -20,9 +20,9 @@ const RoomFilter = ({ rooms }) => {
     pets,
   } = useContext(RoomContext);
 
-  const getUnique = (items, value) => {
-    return [...new Set(items.map((item) => item[value]))];
-  };
+  const getUnique = (items, value) => [
+    ...new Set(items.map((item) => item[value])),
+  ];
 
   let types = getUnique(rooms, 'type');
   types = ['all', ...types];
