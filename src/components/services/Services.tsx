@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaBeer, FaCocktail, FaHiking, FaShuttleVan } from 'react-icons/fa';
+
 import Title from '../title/Title';
+
 import './Services.scss';
 
 const services = [
@@ -26,7 +28,7 @@ const services = [
   },
 ];
 
-const Services = () => (
+const Services = (): JSX.Element => (
   <section className="services">
     <Title title="Services" />
     <div className="services-center">

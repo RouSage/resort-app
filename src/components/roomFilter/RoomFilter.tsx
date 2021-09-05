@@ -1,32 +1,37 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
-import { RoomContext } from '../../context';
+
 import Title from '../title/Title';
+import { RoomContext } from '../../context';
+import { RoomModel, RoomType } from '../../context/room';
+
 import './RoomFilter.scss';
 
-const RoomFilter = ({ rooms }) => {
+interface RoomFilterProps {
+  rooms: RoomModel[];
+}
+
+const RoomFilter = ({ rooms }: RoomFilterProps): JSX.Element => {
   const {
     handleChange,
-    type,
-    capacity,
-    price,
-    minPrice,
-    maxPrice,
-    minSize,
-    maxSize,
-    breakfast,
-    pets,
+    filters: {
+      breakfast,
+      capacity,
+      maxPrice,
+      maxSize,
+      minPrice,
+      minSize,
+      pets,
+      price,
+      type,
+    },
   } = useContext(RoomContext);
 
-  const getUnique = (items, value) => [
+  const getUnique = (items: RoomModel[], value: keyof RoomModel): any[] => [
     ...new Set(items.map((item) => item[value])),
   ];
 
-  let types = getUnique(rooms, 'type');
-  types = ['all', ...types];
-  const people = getUnique(rooms, 'capacity');
+  const types = Object.values(RoomType);
+  const people: number[] = getUnique(rooms, 'capacity');
 
   return (
     <section className="filter-container">
@@ -128,14 +133,6 @@ const RoomFilter = ({ rooms }) => {
       </form>
     </section>
   );
-};
-
-RoomFilter.propTypes = {
-  rooms: PropTypes.arrayOf(PropTypes.object),
-};
-
-RoomFilter.defaultProps = {
-  rooms: [],
 };
 
 export default React.memo(RoomFilter);

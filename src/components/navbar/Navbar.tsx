@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+
 import logo from '../../images/logo.svg';
 import { HOME_PAGE, ROOMS_PAGE } from '../../routes';
+
 import './Navbar.scss';
 
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = () => {
+  const handleToggle = (): void => {
     setIsOpen(!isOpen);
   };
 

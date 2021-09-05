@@ -1,20 +1,27 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { Link } from 'react-router-dom';
+
+import { RoomModel } from '../../context/room';
 import placeholderRoom from '../../images/room-1.jpeg';
 import { ROOMS_PAGE } from '../../routes';
+
 import './Room.scss';
 
-const Room = ({ room }) => {
+interface RoomProps {
+  room: RoomModel;
+}
+
+const Room = ({ room }: RoomProps): JSX.Element => {
   const { name, slug, images, price } = room;
+  const image = images[0] !== '' ? images[0] : placeholderRoom;
 
   return (
     <article className="room">
       <div className="img-container">
         <LazyLoadImage
           alt={name}
-          src={images[0] || placeholderRoom}
+          src={image}
           placeholderSrc={placeholderRoom}
         />
         {/* <img src={images[0] || placeholderRoom} alt="Single Room" /> */}
@@ -29,15 +36,6 @@ const Room = ({ room }) => {
       <p className="room-info">{name}</p>
     </article>
   );
-};
-
-Room.propTypes = {
-  room: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-    images: PropTypes.arrayOf(PropTypes.string).isRequired,
-    price: PropTypes.number.isRequired,
-  }).isRequired,
 };
 
 export default React.memo(Room);

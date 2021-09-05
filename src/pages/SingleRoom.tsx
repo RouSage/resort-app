@@ -1,19 +1,21 @@
 import React, { useContext } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
 import Banner from '../components/banner/Banner';
 import StyledHero from '../components/StyledHero';
 import { RoomContext } from '../context';
 import defaultImg from '../images/room-1.jpeg';
-import { ROOMS_PAGE } from '../routes';
+import { ROOMS_PAGE, SingleRoomParams } from '../routes';
+
 import '../scss/pages/SingleRoom.scss';
 
-const SingleRoom = () => {
-  const { slug } = useParams();
+const SingleRoom = (): JSX.Element => {
+  const { slug } = useParams<SingleRoomParams>();
   const { getRoom } = useContext(RoomContext);
 
   const room = getRoom(slug);
 
-  if (!room) {
+  if (room == null) {
     return (
       <div className="error">
         <h3>No such room could be found...</h3>
@@ -28,7 +30,7 @@ const SingleRoom = () => {
 
   return (
     <>
-      <StyledHero img={mainImg || defaultImg}>
+      <StyledHero img={mainImg !== '' ? mainImg : defaultImg}>
         <Banner title={`${room.name} room`}>
           <Link to={ROOMS_PAGE} className="btn-primary">
             Back to Rooms

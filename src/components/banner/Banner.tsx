@@ -1,8 +1,14 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+
 import './Banner.scss';
 
-const Banner = ({ children, title, subtitle }) => (
+interface BannerProps {
+  children: React.ReactNode;
+  title: string;
+  subtitle?: string;
+}
+
+const Banner = ({ children, title, subtitle }: BannerProps): JSX.Element => (
   <div className="banner">
     <h1>{title}</h1>
     <div />
@@ -10,16 +16,5 @@ const Banner = ({ children, title, subtitle }) => (
     {children}
   </div>
 );
-
-Banner.propTypes = {
-  children: PropTypes.element,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
-};
-
-Banner.defaultProps = {
-  children: null,
-  subtitle: '',
-};
 
 export default React.memo(Banner);

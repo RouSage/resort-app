@@ -1,18 +1,13 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import './Hero.scss';
 
-const Hero = ({ children, hero }) => (
+interface HeroProps {
+  children: React.ReactNode;
+  hero?: string;
+}
+
+const Hero = ({ children, hero = 'defaultHero' }: HeroProps): JSX.Element => (
   <header className={hero}>{children}</header>
 );
-
-Hero.propTypes = {
-  children: PropTypes.element.isRequired,
-  hero: PropTypes.string,
-};
-
-Hero.defaultProps = {
-  hero: 'defaultHero',
-};
 
 export default React.memo(Hero);

@@ -4,7 +4,7 @@ import Loading from './loading/Loading';
 import RoomFilter from './roomFilter/RoomFilter';
 import RoomList from './roomList/RoomList';
 
-const RoomContainer = () => {
+const RoomContainer = (): JSX.Element => {
   const { loading, sortedRooms, rooms } = useContext(RoomContext);
 
   if (loading) {

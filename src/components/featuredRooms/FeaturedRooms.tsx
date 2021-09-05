@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
-import { RoomContext } from '../../context';
+
 import Loading from '../loading/Loading';
 import Room from '../room/Room';
 import Title from '../title/Title';
+
+import { RoomContext } from '../../context';
+
 import './FeaturedRooms.scss';
 
-const FeaturedRooms = () => {
+const FeaturedRooms = (): JSX.Element => {
   const { featuredRooms, loading } = useContext(RoomContext);
 
   return (

@@ -1,9 +1,15 @@
-import PropTypes from 'prop-types';
 import React from 'react';
+
 import Room from '../room/Room';
+import { RoomModel } from '../../context/room';
+
 import './RoomList.scss';
 
-const RoomList = ({ rooms }) => {
+interface RoomListProps {
+  rooms: RoomModel[];
+}
+
+const RoomList = ({ rooms }: RoomListProps): JSX.Element => {
   if (rooms.length === 0) {
     return (
       <div className="empty-search">
@@ -21,14 +27,6 @@ const RoomList = ({ rooms }) => {
       </div>
     </section>
   );
-};
-
-RoomList.propTypes = {
-  rooms: PropTypes.arrayOf(PropTypes.object),
-};
-
-RoomList.defaultProps = {
-  rooms: [],
 };
 
 export default React.memo(RoomList);

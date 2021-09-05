@@ -39,7 +39,9 @@
                     ".tsx"
                 ]
             }
-        ]
+        ],
+        "@typescript-eslint/no-floating-promises": "off",
+        "jsx-a11y/no-onchange": "off"
     },
     "settings": {
         "react": {
