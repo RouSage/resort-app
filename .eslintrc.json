@@ -1,14 +1,9 @@
 {
+    "root": true,
     "env": {
         "browser": true,
         "es6": true
     },
-    "parser": "babel-eslint",
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "prettier"
-    ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -17,15 +12,25 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "project": "./tsconfig.json"
     },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "standard-with-typescript",
+        "plugin:jsx-a11y/recommended",
+        "plugin:prettier/recommended"
+    ],
     "plugins": [
         "react",
-        "prettier"
+        "react-hooks",
+        "@typescript-eslint",
+        "jsx-a11y"
     ],
     "rules": {
-        "prettier/prettier": "error",
         "react/jsx-filename-extension": [
             1,
             {
@@ -35,5 +40,11 @@
                 ]
             }
         ]
+    },
+    "settings": {
+        "react": {
+            "pragma": "React",
+            "version": "detect"
+        }
     }
 }

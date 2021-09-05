@@ -5,7 +5,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "lint:ts": "eslint src/ --ext .ts,.tsx",
+    "lint": "run-p lint:*",
+    "lint:ts": "eslint src/",
     "lint:types": "tsc",
     "prettier": "prettier --write 'src/**/*.{js,jsx}'",
     "prepare": "husky install"
@@ -20,7 +21,30 @@
     "react-lazy-load-image-component": "^1.5.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
-    "styled-components": "^5.3.0",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/node": "^16.7.10",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.0",
+    "lint-staged": ">=10",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
     "typescript": "^4.4.2"
   },
   "browserslist": {
@@ -34,22 +58,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^13.1.0",
-    "@commitlint/config-conventional": "^13.1.0",
-    "@types/node": "^16.7.10",
-    "@types/react": "^17.0.19",
-    "@types/react-dom": "^17.0.9",
-    "eslint": "^7.11.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.23.4",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^7.0.0",
-    "prettier": "^2.3.2"
   }
 }
