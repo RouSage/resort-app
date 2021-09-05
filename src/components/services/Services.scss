@@ -7,6 +7,7 @@
   padding: 5rem 0;
   background: $dark-grey;
   text-align: center;
+
   &-center {
     width: 90vw;
     margin: 0 auto;
@@ -15,21 +16,25 @@
     grid-row-gap: 2rem;
     grid-column-gap: 50px;
   }
+
   h6 {
     letter-spacing: $main-spacing;
     text-transform: capitalize;
   }
+
   p {
     width: 80%;
     margin: 0 auto;
   }
 }
+
 .service span {
   display: inline-block;
   color: $primary-color;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
+
 @media screen and (min-width: $md-lg) {
   .services {
     &-center {

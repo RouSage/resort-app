@@ -3,6 +3,7 @@
 /* Room list */
 .roomslist {
   padding: 5rem 0;
+
   &-center {
     width: 80vw;
     margin: 0 auto;
@@ -20,6 +21,7 @@
     }
   }
 }
+
 @media screen and (min-width: $md-lg) {
   .roomslist {
     &-center {

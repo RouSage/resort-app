@@ -5,9 +5,11 @@
 .room {
   box-shadow: $light-shadow;
   transition: $main-transition;
+
   &:hover {
     box-shadow: $dark-shadow;
   }
+
   &-link {
     position: absolute;
     top: 50%;
@@ -15,6 +17,7 @@
     transform: scale(0);
     transition: all 0.3s linear;
   }
+
   &-info {
     background: $dark-grey;
     text-transform: capitalize;
@@ -25,26 +28,6 @@
   }
 }
 
-.img-container {
-  position: relative;
-  &:hover {
-    background: rgba(0, 0, 0, 0.8);
-    img {
-      opacity: 0.3;
-    }
-    .price-top {
-      opacity: 0;
-    }
-    .room-link {
-      transform: translate(-50%, -50%) scale(1);
-    }
-  }
-  img {
-    width: 100%;
-    display: block;
-    transition: $main-transition;
-  }
-}
 .price-top {
   position: absolute;
   top: 0;
@@ -56,10 +39,37 @@
   font-size: 0.5rem;
   text-align: center;
   transition: $main-transition;
+
   h6 {
     margin-bottom: 0;
     font-size: 0.9rem;
     font-weight: 300;
     letter-spacing: $main-spacing;
+  }
+}
+
+.img-container {
+  position: relative;
+
+  img {
+    width: 100%;
+    display: block;
+    transition: $main-transition;
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+
+    img {
+      opacity: 0.3;
+    }
+
+    .price-top {
+      opacity: 0;
+    }
+
+    .room-link {
+      transform: translate(-50%, -50%) scale(1);
+    }
   }
 }
